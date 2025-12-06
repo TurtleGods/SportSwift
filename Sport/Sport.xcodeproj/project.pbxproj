@@ -7,12 +7,11 @@
 	objects = {
 
 /* Begin PBXFileReference section */
-		149BF70A2EE1E8540080E3D1 /* Sport.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sport.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		14E7FB6E2EE46DA60069BBC0 /* Sport.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = Sport.xcodeproj; sourceTree = "<group>"; };
+		14E7FB5C2EE46D8A0069BBC0 /* Sport.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sport.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		149BF70C2EE1E8540080E3D1 /* Sport */ = {
+		14E7FB5E2EE46D8A0069BBC0 /* Sport */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = Sport;
 			sourceTree = "<group>";
@@ -20,7 +19,7 @@
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		149BF7072EE1E8530080E3D1 /* Frameworks */ = {
+		14E7FB592EE46D8A0069BBC0 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -30,25 +29,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		149BF7012EE1E8530080E3D1 = {
+		14E7FB532EE46D8A0069BBC0 = {
 			isa = PBXGroup;
 			children = (
-				149BF70C2EE1E8540080E3D1 /* Sport */,
-				149BF70B2EE1E8540080E3D1 /* Products */,
+				14E7FB5E2EE46D8A0069BBC0 /* Sport */,
+				14E7FB5D2EE46D8A0069BBC0 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		149BF70B2EE1E8540080E3D1 /* Products */ = {
+		14E7FB5D2EE46D8A0069BBC0 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				149BF70A2EE1E8540080E3D1 /* Sport.app */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		14E7FB6F2EE46DA60069BBC0 /* Products */ = {
-			isa = PBXGroup;
-			children = (
+				14E7FB5C2EE46D8A0069BBC0 /* Sport.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -56,70 +48,64 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		149BF7092EE1E8530080E3D1 /* Sport */ = {
+		14E7FB5B2EE46D8A0069BBC0 /* Sport */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 149BF71D2EE1E85B0080E3D1 /* Build configuration list for PBXNativeTarget "Sport" */;
+			buildConfigurationList = 14E7FB672EE46DA40069BBC0 /* Build configuration list for PBXNativeTarget "Sport" */;
 			buildPhases = (
-				149BF7062EE1E8530080E3D1 /* Sources */,
-				149BF7072EE1E8530080E3D1 /* Frameworks */,
-				149BF7082EE1E8530080E3D1 /* Resources */,
+				14E7FB582EE46D8A0069BBC0 /* Sources */,
+				14E7FB592EE46D8A0069BBC0 /* Frameworks */,
+				14E7FB5A2EE46D8A0069BBC0 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
-				149BF70C2EE1E8540080E3D1 /* Sport */,
+				14E7FB5E2EE46D8A0069BBC0 /* Sport */,
 			);
 			name = Sport;
 			packageProductDependencies = (
 			);
 			productName = Sport;
-			productReference = 149BF70A2EE1E8540080E3D1 /* Sport.app */;
+			productReference = 14E7FB5C2EE46D8A0069BBC0 /* Sport.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		149BF7022EE1E8530080E3D1 /* Project object */ = {
+		14E7FB542EE46D8A0069BBC0 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 2610;
 				LastUpgradeCheck = 2610;
 				TargetAttributes = {
-					149BF7092EE1E8530080E3D1 = {
+					14E7FB5B2EE46D8A0069BBC0 = {
 						CreatedOnToolsVersion = 26.1.1;
 					};
 				};
 			};
-			buildConfigurationList = 149BF7052EE1E8530080E3D1 /* Build configuration list for PBXProject "Sport" */;
+			buildConfigurationList = 14E7FB572EE46D8A0069BBC0 /* Build configuration list for PBXProject "Sport" */;
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 				Base,
 			);
-			mainGroup = 149BF7012EE1E8530080E3D1;
+			mainGroup = 14E7FB532EE46D8A0069BBC0;
 			minimizedProjectReferenceProxies = 1;
 			preferredProjectObjectVersion = 77;
-			productRefGroup = 149BF70B2EE1E8540080E3D1 /* Products */;
+			productRefGroup = 14E7FB5D2EE46D8A0069BBC0 /* Products */;
 			projectDirPath = "";
-			projectReferences = (
-				{
-					ProductGroup = 14E7FB6F2EE46DA60069BBC0 /* Products */;
-					ProjectRef = 14E7FB6E2EE46DA60069BBC0 /* Sport.xcodeproj */;
-				},
-			);
 			projectRoot = "";
 			targets = (
-				149BF7092EE1E8530080E3D1 /* Sport */,
+				14E7FB5B2EE46D8A0069BBC0 /* Sport */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		149BF7082EE1E8530080E3D1 /* Resources */ = {
+		14E7FB5A2EE46D8A0069BBC0 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -129,7 +115,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		149BF7062EE1E8530080E3D1 /* Sources */ = {
+		14E7FB582EE46D8A0069BBC0 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -139,74 +125,7 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
-		149BF71E2EE1E85B0080E3D1 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 6TJ3NYLYHN;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = Sport/Info.plist;
-				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 26.1;
-				"IPHONEOS_DEPLOYMENT_TARGET[sdk=iphoneos*]" = 18;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.strollist.Sport;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				STRING_CATALOG_GENERATE_SYMBOLS = YES;
-				SWIFT_APPROACHABLE_CONCURRENCY = YES;
-				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
-				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Debug;
-		};
-		149BF71F2EE1E85B0080E3D1 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 6TJ3NYLYHN;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = Sport/Info.plist;
-				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 26.1;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.strollist.Sport;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				STRING_CATALOG_GENERATE_SYMBOLS = YES;
-				SWIFT_APPROACHABLE_CONCURRENCY = YES;
-				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
-				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Release;
-		};
-		149BF7202EE1E85B0080E3D1 /* Debug */ = {
+		14E7FB652EE46DA40069BBC0 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -270,7 +189,7 @@
 			};
 			name = Debug;
 		};
-		149BF7212EE1E85B0080E3D1 /* Release */ = {
+		14E7FB662EE46DA40069BBC0 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -327,28 +246,92 @@
 			};
 			name = Release;
 		};
+		14E7FB682EE46DA40069BBC0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 6TJ3NYLYHN;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.strollist.Sport;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		14E7FB692EE46DA40069BBC0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 6TJ3NYLYHN;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.strollist.Sport;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		149BF7052EE1E8530080E3D1 /* Build configuration list for PBXProject "Sport" */ = {
+		14E7FB572EE46D8A0069BBC0 /* Build configuration list for PBXProject "Sport" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				149BF7202EE1E85B0080E3D1 /* Debug */,
-				149BF7212EE1E85B0080E3D1 /* Release */,
+				14E7FB652EE46DA40069BBC0 /* Debug */,
+				14E7FB662EE46DA40069BBC0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		149BF71D2EE1E85B0080E3D1 /* Build configuration list for PBXNativeTarget "Sport" */ = {
+		14E7FB672EE46DA40069BBC0 /* Build configuration list for PBXNativeTarget "Sport" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				149BF71E2EE1E85B0080E3D1 /* Debug */,
-				149BF71F2EE1E85B0080E3D1 /* Release */,
+				14E7FB682EE46DA40069BBC0 /* Debug */,
+				14E7FB692EE46DA40069BBC0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = 149BF7022EE1E8530080E3D1 /* Project object */;
+	rootObject = 14E7FB542EE46D8A0069BBC0 /* Project object */;
 }
