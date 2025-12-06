@@ -72,6 +72,7 @@ class ViewController: UIViewController {
         registerButton.backgroundColor = UIColor(red: 200/255, green: 160/255, blue: 57/255, alpha: 1)
         registerButton.layer.cornerRadius = 12
         registerButton.contentEdgeInsets = UIEdgeInsets(top: 14, left: 12, bottom: 14, right: 12)
+        registerButton.addTarget(self, action: #selector(handleRegister), for: .touchUpInside)
 
         let contentStack = UIStackView(arrangedSubviews: [headingLabel, phoneRow, codeRow, registerButton])
         contentStack.axis = .vertical
@@ -87,6 +88,11 @@ class ViewController: UIViewController {
             contentStack.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -24),
             contentStack.topAnchor.constraint(equalTo: topBar.bottomAnchor, constant: 80)
         ])
+    }
+
+    @objc private func handleRegister() {
+        let controller = BasicInfoViewController()
+        navigationController?.pushViewController(controller, animated: true)
     }
 
     private func makeTextField(placeholder: String) -> UITextField {
