@@ -6,6 +6,7 @@ struct HomeView: View {
         Coach(name: "王小名", experience: "abcabcabc", rating: 5, accent: .green),
         Coach(name: "王小名", experience: "abcabcabc", rating: 3, accent: .orange)
     ]
+    var onOpenCoaches: () -> Void
 
     var body: some View {
         ScrollView(showsIndicators: false) {
@@ -17,15 +18,30 @@ struct HomeView: View {
                 SearchBar()
 
                 VStack(alignment: .leading, spacing: 14) {
-                    Text("熱門教練推薦")
-                        .font(.system(size: 20, weight: .bold))
-                        .foregroundColor(.white)
-                        .padding(.horizontal, 16)
+                    HStack {
+                        Text("熱門教練推薦")
+                            .font(.system(size: 20, weight: .bold))
+                            .foregroundColor(.white)
+                        Spacer()
+                        Image(systemName: "chevron.right")
+                            .foregroundColor(.white)
+                            .font(.system(size: 16, weight: .bold))
+                    }
+                    .padding(.horizontal, 16)
+                    .contentShape(Rectangle())
+                    .onTapGesture {
+                        onOpenCoaches()
+                    }
 
                     ScrollView(.horizontal, showsIndicators: false) {
                         HStack(spacing: 16) {
                             ForEach(coaches) { coach in
-                                CoachCard(coach: coach)
+                                Button {
+                                    onOpenCoaches()
+                                } label: {
+                                    CoachCard(coach: coach)
+                                }
+                                .buttonStyle(.plain)
                             }
                         }
                         .padding(.horizontal, 16)

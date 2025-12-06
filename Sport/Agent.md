@@ -6,3 +6,10 @@ Use apple swiftUI to build iOS app application
 
 ### Home
 - After registration completes, navigate to the home screen shown in `Flow/1-1-1-home.png`.
+
+### 熱門教練推薦
+- From `Screens/HomeView.swift`, tapping 「熱門教練推薦」 (header or card) navigates forward (no sheets) through the following flow:
+1. `Flow/1-2-1.png` coach list. Selecting a coach pushes to…
+2. `Flow/1-2-2.png` coach detail. Tapping the top-right 「查看評價」 pushes to…
+3. `Flow/1-2-3.png` reviews list. Tapping to rate/comment pushes to…
+4. `Flow/1-2-4.png` write review screen.

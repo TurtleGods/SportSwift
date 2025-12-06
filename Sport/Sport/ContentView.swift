@@ -14,10 +14,15 @@ private enum AppScreen {
     case calories
     case caloriesConfirm
     case home
+    case coachList
+    case coachDetail
+    case coachReviews
+    case writeReview
 }
 
 struct ContentView: View {
     @State private var screen: AppScreen = .register
+    @State private var selectedCoach: Coach? = nil
 
     var body: some View {
         ZStack {
@@ -54,7 +59,30 @@ struct ContentView: View {
                     onSave: {}
                 )
             case .home:
-                HomeView()
+                HomeView(onOpenCoaches: {
+                    screen = .coachList
+                })
+            case .coachList:
+                CoachListView(
+                    onBack: { screen = .home },
+                    onSelect: { coach in
+                        selectedCoach = coach
+                        screen = .coachDetail
+                    }
+                )
+            case .coachDetail:
+                CoachDetailView(
+                    coach: selectedCoach ?? Coach.sample,
+                    onBack: { screen = .coachList },
+                    onShowReviews: { screen = .coachReviews }
+                )
+            case .coachReviews:
+                CoachReviewsView(
+                    onBack: { screen = .coachDetail },
+                    onWriteReview: { screen = .writeReview }
+                )
+            case .writeReview:
+                WriteReviewView(onClose: { screen = .coachReviews })
             }
         }
     }

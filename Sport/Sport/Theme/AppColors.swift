@@ -2,6 +2,7 @@ import SwiftUI
 
 enum AppColors {
     static let background = Color(red: 26/255, green: 46/255, blue: 58/255)
+    static let sheetBackground = Color(red: 67/255, green: 98/255, blue: 115/255)
     static let inputBackground = Color(red: 38/255, green: 62/255, blue: 76/255)
     static let cardBackground = Color(red: 34/255, green: 51/255, blue: 61/255)
     static let accent = Color(red: 196/255, green: 153/255, blue: 55/255)
