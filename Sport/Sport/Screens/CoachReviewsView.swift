@@ -29,6 +29,7 @@ struct CoachReviewsView: View {
             }
             .padding(.horizontal, 16)
             .padding(.top, 6)
+            .safeAreaPadding(.top)
 
             ScrollView {
                 VStack(spacing: 14) {
@@ -47,6 +48,7 @@ struct CoachReviewsView: View {
             BottomBar()
                 .padding(.bottom, 4)
         }
+        .highPriorityGesture(backSwipeGesture(onBack))
         .background(AppColors.background.ignoresSafeArea())
     }
 }
@@ -128,4 +130,13 @@ private struct StarRow: View {
             }
         }
     }
+}
+
+private func backSwipeGesture(_ action: @escaping () -> Void) -> some Gesture {
+    DragGesture(minimumDistance: 20, coordinateSpace: .local)
+        .onEnded { value in
+            if value.translation.width > 60 && abs(value.translation.height) < 40 {
+                action()
+            }
+        }
 }

@@ -19,6 +19,7 @@ struct WriteReviewView: View {
             }
             .padding(.horizontal, 16)
             .padding(.top, 10)
+            .safeAreaPadding(.top)
 
             HStack(spacing: 12) {
                 Circle()
@@ -62,6 +63,7 @@ struct WriteReviewView: View {
             BottomBar()
                 .padding(.bottom, 4)
         }
+        .highPriorityGesture(backSwipeGesture(onClose))
         .background(AppColors.sheetBackground.ignoresSafeArea())
     }
 }
@@ -80,6 +82,15 @@ private struct RatingRow: View {
             Spacer()
         }
     }
+}
+
+private func backSwipeGesture(_ action: @escaping () -> Void) -> some Gesture {
+    DragGesture(minimumDistance: 20, coordinateSpace: .local)
+        .onEnded { value in
+            if value.translation.width > 60 && abs(value.translation.height) < 40 {
+                action()
+            }
+        }
 }
 
 private struct StarInput: View {

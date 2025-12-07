@@ -59,6 +59,7 @@ struct CoachDetailView: View {
             BottomBar()
                 .padding(.bottom, 4)
         }
+        .highPriorityGesture(backSwipeGesture(onBack))
         .background(AppColors.sheetBackground.ignoresSafeArea())
     }
 }
@@ -73,6 +74,8 @@ private struct CoachDetailHeader: View {
                 Image(systemName: "chevron.left")
                     .foregroundColor(.white)
                     .font(.system(size: 20, weight: .bold))
+                    .frame(width: 44, height: 44)
+                    .contentShape(Rectangle())
             }
             Spacer()
             Text("熱門教練推薦")
@@ -83,10 +86,13 @@ private struct CoachDetailHeader: View {
                 Text("查看評價")
                     .foregroundColor(.yellow)
                     .font(.system(size: 14, weight: .semibold))
+                    .frame(width: 80, height: 44, alignment: .trailing)
+                    .contentShape(Rectangle())
             }
         }
         .padding(.horizontal, 16)
-        .padding(.top, 12)
+        .padding(.top, 6)
+        .safeAreaPadding(.top)
     }
 }
 
@@ -136,4 +142,13 @@ private struct DetailRow: View {
             alignment: .bottom
         )
     }
+}
+
+private func backSwipeGesture(_ action: @escaping () -> Void) -> some Gesture {
+    DragGesture(minimumDistance: 20, coordinateSpace: .local)
+        .onEnded { value in
+            if value.translation.width > 60 && abs(value.translation.height) < 40 {
+                action()
+            }
+        }
 }
