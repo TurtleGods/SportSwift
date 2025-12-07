@@ -3,6 +3,7 @@ import SwiftUI
 struct HomeView: View {
     @ObservedObject var viewModel: HomeViewModel
     var onOpenCoaches: () -> Void
+    var onSelectTab: (BottomTab) -> Void = { _ in }
 
     var body: some View {
         VStack(spacing: 0) {
@@ -68,7 +69,7 @@ struct HomeView: View {
         }
         .background(AppColors.background)
         .safeAreaInset(edge: .bottom) {
-            BottomBar()
+            BottomBar(active: .home, onSelect: onSelectTab)
                 .padding(.bottom, 4)
                 .background(AppColors.background)
         }

@@ -4,6 +4,7 @@ struct CoachReviewsView: View {
     @ObservedObject var viewModel: CoachesViewModel
     var onBack: () -> Void
     var onWriteReview: () -> Void
+    var onSelectTab: (BottomTab) -> Void = { _ in }
 
     var body: some View {
         VStack(spacing: 12) {
@@ -46,7 +47,7 @@ struct CoachReviewsView: View {
 
             Spacer(minLength: 0)
 
-            BottomBar()
+            BottomBar(active: .home, onSelect: onSelectTab)
                 .padding(.bottom, 4)
         }
         .highPriorityGesture(backSwipeGesture(onBack))

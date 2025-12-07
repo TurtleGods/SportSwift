@@ -3,6 +3,7 @@ import SwiftUI
 struct WriteReviewView: View {
     @ObservedObject var viewModel: CoachesViewModel
     var onClose: () -> Void
+    var onSelectTab: (BottomTab) -> Void = { _ in }
 
     var body: some View {
         VStack(spacing: 18) {
@@ -60,7 +61,7 @@ struct WriteReviewView: View {
 
             Spacer()
 
-            BottomBar()
+            BottomBar(active: .home, onSelect: onSelectTab)
                 .padding(.bottom, 4)
         }
         .highPriorityGesture(backSwipeGesture {

@@ -4,6 +4,7 @@ struct CoachDetailView: View {
     @ObservedObject var viewModel: CoachesViewModel
     var onBack: () -> Void
     var onShowReviews: () -> Void
+    var onSelectTab: (BottomTab) -> Void = { _ in }
 
     var body: some View {
         let coach = viewModel.currentCoach
@@ -58,7 +59,7 @@ struct CoachDetailView: View {
             .padding(.horizontal, 16)
             .padding(.bottom, 10)
 
-            BottomBar()
+            BottomBar(active: .home, onSelect: onSelectTab)
                 .padding(.bottom, 4)
         }
         .highPriorityGesture(backSwipeGesture(onBack))

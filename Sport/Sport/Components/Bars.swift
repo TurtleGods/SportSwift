@@ -1,5 +1,12 @@
 import SwiftUI
 
+enum BottomTab {
+    case home
+    case favorites
+    case schedule
+    case records
+}
+
 struct TopBar: View {
     var body: some View {
         HStack {
@@ -113,12 +120,15 @@ struct SearchBar: View {
 }
 
 struct BottomBar: View {
+    var active: BottomTab = .home
+    var onSelect: (BottomTab) -> Void = { _ in }
+
     var body: some View {
         HStack {
-            BottomItem(title: "首頁", system: "house.fill", active: true)
-            BottomItem(title: "我的最愛", system: "heart.fill")
-            BottomItem(title: "我的課表", system: "calendar")
-            BottomItem(title: "我的記錄", system: "list.bullet.rectangle")
+            BottomItem(title: "首頁", system: "house.fill", active: active == .home) { onSelect(.home) }
+            BottomItem(title: "我的最愛", system: "heart.fill", active: active == .favorites) { onSelect(.favorites) }
+            BottomItem(title: "我的課表", system: "calendar", active: active == .schedule) { onSelect(.schedule) }
+            BottomItem(title: "我的記錄", system: "list.bullet.rectangle", active: active == .records) { onSelect(.records) }
         }
         .padding(.horizontal, 18)
         .padding(.vertical, 10)
@@ -130,15 +140,18 @@ struct BottomItem: View {
     var title: String
     var system: String
     var active: Bool = false
+    var onTap: () -> Void
 
     var body: some View {
-        VStack(spacing: 4) {
-            Image(systemName: system)
-                .foregroundColor(active ? Color.yellow : .white)
-            Text(title)
-                .font(.system(size: 12, weight: .bold))
-                .foregroundColor(active ? Color.yellow : .white)
+        Button(action: onTap) {
+            VStack(spacing: 4) {
+                Image(systemName: system)
+                    .foregroundColor(active ? Color.yellow : .white)
+                Text(title)
+                    .font(.system(size: 12, weight: .bold))
+                    .foregroundColor(active ? Color.yellow : .white)
+            }
+            .frame(maxWidth: .infinity)
         }
-        .frame(maxWidth: .infinity)
     }
 }

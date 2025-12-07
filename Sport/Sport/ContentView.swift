@@ -18,13 +18,24 @@ private enum AppScreen {
     case coachDetail
     case coachReviews
     case writeReview
+    case records
 }
 
 struct ContentView: View {
     @StateObject private var registrationViewModel = RegistrationViewModel()
     @StateObject private var homeViewModel = HomeViewModel()
     @StateObject private var coachesViewModel = CoachesViewModel()
+    @StateObject private var recordsViewModel = RecordsViewModel()
     @State private var screen: AppScreen = .register
+
+    private func handleTab(_ tab: BottomTab) {
+        switch tab {
+        case .home, .favorites, .schedule:
+            screen = .home
+        case .records:
+            screen = .records
+        }
+    }
 
     var body: some View {
         ZStack {
@@ -68,32 +79,44 @@ struct ContentView: View {
                 HomeView(
                     viewModel: homeViewModel,
                     onOpenCoaches: {
-                    screen = .coachList
-                })
+                        screen = .coachList
+                    },
+                    onSelectTab: handleTab
+                )
             case .coachList:
                 CoachListView(
                     viewModel: coachesViewModel,
                     onBack: { screen = .home },
                     onSelect: { _ in
                         screen = .coachDetail
-                    }
+                    },
+                    onSelectTab: handleTab
                 )
             case .coachDetail:
                 CoachDetailView(
                     viewModel: coachesViewModel,
                     onBack: { screen = .coachList },
-                    onShowReviews: { screen = .coachReviews }
+                    onShowReviews: { screen = .coachReviews },
+                    onSelectTab: handleTab
                 )
             case .coachReviews:
                 CoachReviewsView(
                     viewModel: coachesViewModel,
                     onBack: { screen = .coachDetail },
-                    onWriteReview: { screen = .writeReview }
+                    onWriteReview: { screen = .writeReview },
+                    onSelectTab: handleTab
                 )
             case .writeReview:
                 WriteReviewView(
                     viewModel: coachesViewModel,
-                    onClose: { screen = .coachReviews }
+                    onClose: { screen = .coachReviews },
+                    onSelectTab: handleTab
+                )
+            case .records:
+                RecordsView(
+                    viewModel: recordsViewModel,
+                    onBack: { screen = .home },
+                    onSelectTab: handleTab
                 )
             }
         }

@@ -4,6 +4,7 @@ struct CoachListView: View {
     @ObservedObject var viewModel: CoachesViewModel
     var onBack: () -> Void
     var onSelect: (Coach) -> Void
+    var onSelectTab: (BottomTab) -> Void = { _ in }
 
     private let columns = [GridItem(.flexible()), GridItem(.flexible())]
 
@@ -54,7 +55,7 @@ struct CoachListView: View {
 
             Spacer(minLength: 0)
 
-            BottomBar()
+            BottomBar(active: .home, onSelect: onSelectTab)
                 .padding(.bottom, 4)
         }
         .highPriorityGesture(backSwipeGesture(onBack))
