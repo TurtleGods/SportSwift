@@ -64,7 +64,6 @@ private struct ReviewSummaryCard: View {
                 .frame(width: 52, height: 52)
             VStack(alignment: .leading, spacing: 4) {
                 StarRow(filled: rating, size: 18)
-                StarRow(filled: 0, size: 0) // spacer for alignment
             }
             Spacer()
         }
