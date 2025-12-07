@@ -8,6 +8,7 @@ Use apple swiftUI to build iOS app application
 - MVVM by feature: `Sport/Features/Registration`, `Sport/Features/Home`, `Sport/Features/Coaches`, each with `Views` and `ViewModels`.
 - Shared UI lives in `Sport/Components` and shared theme in `Sport/Theme`; models remain under `Sport/Models`.
 - `ContentView` coordinates navigation and owns the shared view models used across the flows.
+- Personal account: `person.crop.circle` from top bars opens the account screen (`Sport/Features/Account/Views/AccountView.swift`).
 
 ### Home
 - After registration completes, navigate to the home screen shown in `Flow/1-1-1-home.png`.
