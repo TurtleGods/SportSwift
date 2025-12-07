@@ -1,12 +1,14 @@
 import SwiftUI
 
 struct CoachDetailView: View {
-    var coach: Coach
+    @ObservedObject var viewModel: CoachesViewModel
     var onBack: () -> Void
     var onShowReviews: () -> Void
 
     var body: some View {
-        VStack(spacing: 16) {
+        let coach = viewModel.currentCoach
+
+        return VStack(spacing: 16) {
             CoachDetailHeader(onBack: onBack, onShowReviews: onShowReviews)
 
             VStack(spacing: 12) {
@@ -31,7 +33,7 @@ struct CoachDetailView: View {
             }
             .padding(.top, 8)
 
-            CoachDetailInfo()
+            CoachDetailInfo(coach: coach)
                 .padding(.horizontal, 18)
 
             Spacer()
@@ -97,9 +99,11 @@ private struct CoachDetailHeader: View {
 }
 
 private struct CoachDetailInfo: View {
+    var coach: Coach
+
     var body: some View {
         VStack(spacing: 10) {
-            DetailRow(label: "姓名", value: "王小名")
+            DetailRow(label: "姓名", value: coach.name)
             DetailRow(label: "生日", value: "1992.10.01")
             DetailRow(label: "體重", value: "52kg")
             DetailRow(label: "身高", value: "172cm")

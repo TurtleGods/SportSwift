@@ -1,10 +1,7 @@
 import SwiftUI
 
 struct CaloriesView: View {
-    @State private var breakfast: String = "100"
-    @State private var lunch: String = "600"
-    @State private var dinner: String = "700"
-    @State private var snack: String = "100"
+    @ObservedObject var viewModel: RegistrationViewModel
     var onBack: () -> Void
     var showConfirmation: Bool = false
     var onSave: () -> Void
@@ -22,10 +19,10 @@ struct CaloriesView: View {
                     .frame(height: 260)
 
                 VStack(spacing: 18) {
-                    CaloriesRow(label: "早餐", value: $breakfast)
-                    CaloriesRow(label: "午餐", value: $lunch)
-                    CaloriesRow(label: "晚餐", value: $dinner)
-                    CaloriesRow(label: "點心", value: $snack)
+                    CaloriesRow(label: "早餐", value: $viewModel.breakfast)
+                    CaloriesRow(label: "午餐", value: $viewModel.lunch)
+                    CaloriesRow(label: "晚餐", value: $viewModel.dinner)
+                    CaloriesRow(label: "點心", value: $viewModel.snack)
                 }
                 .padding(.horizontal, 34)
 

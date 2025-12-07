@@ -1,6 +1,7 @@
 import SwiftUI
 
 struct CoachReviewsView: View {
+    @ObservedObject var viewModel: CoachesViewModel
     var onBack: () -> Void
     var onWriteReview: () -> Void
 
@@ -33,9 +34,9 @@ struct CoachReviewsView: View {
 
             ScrollView {
                 VStack(spacing: 14) {
-                    ReviewSummaryCard()
-                    ForEach(0..<3) { _ in
-                        ReviewCard()
+                    ReviewSummaryCard(rating: viewModel.averageRating)
+                    ForEach(viewModel.reviews) { review in
+                        ReviewCard(review: review)
                     }
                 }
                 .padding(.horizontal, 12)
@@ -54,13 +55,15 @@ struct CoachReviewsView: View {
 }
 
 private struct ReviewSummaryCard: View {
+    var rating: Int
+
     var body: some View {
         HStack {
             Circle()
                 .fill(AppColors.mutedText.opacity(0.4))
                 .frame(width: 52, height: 52)
             VStack(alignment: .leading, spacing: 4) {
-                StarRow(filled: 4, size: 18)
+                StarRow(filled: rating, size: 18)
                 StarRow(filled: 0, size: 0) // spacer for alignment
             }
             Spacer()
@@ -79,25 +82,27 @@ private struct ReviewSummaryCard: View {
 }
 
 private struct ReviewCard: View {
+    var review: CoachReview
+
     var body: some View {
         VStack(alignment: .leading, spacing: 10) {
             HStack {
                 Circle()
-                    .fill(AppColors.accent.opacity(0.9))
+                    .fill(review.accent.opacity(0.9))
                     .frame(width: 48, height: 48)
                     .overlay(
-                        Text("T")
+                        Text(review.authorInitial)
                             .font(.system(size: 22, weight: .bold))
                             .foregroundColor(.white)
                     )
                 VStack(alignment: .leading, spacing: 2) {
-                    Text("tsai pei-ru")
+                    Text(review.authorName)
                         .foregroundColor(.white)
                         .font(.system(size: 16, weight: .semibold))
-                    StarRow(filled: 5, size: 14)
+                    StarRow(filled: review.rating, size: 14)
                 }
                 Spacer()
-                Text("一週前")
+                Text(review.timeAgo)
                     .foregroundColor(AppColors.mutedText)
                     .font(.system(size: 12))
                     .padding(.horizontal, 10)
@@ -106,7 +111,7 @@ private struct ReviewCard: View {
                     .cornerRadius(10)
             }
 
-            Text("Lorem ipsum dolor sit amet consectetur. Scelerisque sit non magnis ipsum facilisis quam hac eleifend in. A nibh in semper.")
+            Text(review.comment)
                 .foregroundColor(.white)
                 .font(.system(size: 14))
                 .fixedSize(horizontal: false, vertical: true)

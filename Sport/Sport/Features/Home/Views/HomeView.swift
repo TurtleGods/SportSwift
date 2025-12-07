@@ -1,11 +1,7 @@
 import SwiftUI
 
 struct HomeView: View {
-    private let coaches: [Coach] = [
-        Coach(name: "王小名", experience: "abcabcabc", rating: 4, accent: .blue),
-        Coach(name: "王小名", experience: "abcabcabc", rating: 5, accent: .green),
-        Coach(name: "王小名", experience: "abcabcabc", rating: 3, accent: .orange)
-    ]
+    @ObservedObject var viewModel: HomeViewModel
     var onOpenCoaches: () -> Void
 
     var body: some View {
@@ -38,7 +34,7 @@ struct HomeView: View {
 
                         ScrollView(.horizontal, showsIndicators: false) {
                             HStack(spacing: 16) {
-                                ForEach(coaches) { coach in
+                                ForEach(viewModel.featuredCoaches) { coach in
                                     Button {
                                         onOpenCoaches()
                                     } label: {

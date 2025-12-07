@@ -21,8 +21,10 @@ private enum AppScreen {
 }
 
 struct ContentView: View {
+    @StateObject private var registrationViewModel = RegistrationViewModel()
+    @StateObject private var homeViewModel = HomeViewModel()
+    @StateObject private var coachesViewModel = CoachesViewModel()
     @State private var screen: AppScreen = .register
-    @State private var selectedCoach: Coach? = nil
 
     var body: some View {
         ZStack {
@@ -31,19 +33,22 @@ struct ContentView: View {
 
             switch screen {
             case .register:
-                RegisterView { screen = .basicInfo }
+                RegisterView(viewModel: registrationViewModel) { screen = .basicInfo }
             case .basicInfo:
                 BasicInfoView(
+                    viewModel: registrationViewModel,
                     onBack: { screen = .register },
                     onNext: { screen = .goal }
                 )
             case .goal:
                 GoalView(
+                    viewModel: registrationViewModel,
                     onBack: { screen = .basicInfo },
                     onNext: { screen = .calories }
                 )
             case .calories:
                 CaloriesView(
+                    viewModel: registrationViewModel,
                     onBack: { screen = .goal },
                     onSave: {
                         screen = .caloriesConfirm
@@ -54,35 +59,42 @@ struct ContentView: View {
                 )
             case .caloriesConfirm:
                 CaloriesView(
+                    viewModel: registrationViewModel,
                     onBack: { screen = .goal },
                     showConfirmation: true,
                     onSave: {}
                 )
             case .home:
-                HomeView(onOpenCoaches: {
+                HomeView(
+                    viewModel: homeViewModel,
+                    onOpenCoaches: {
                     screen = .coachList
                 })
             case .coachList:
                 CoachListView(
+                    viewModel: coachesViewModel,
                     onBack: { screen = .home },
-                    onSelect: { coach in
-                        selectedCoach = coach
+                    onSelect: { _ in
                         screen = .coachDetail
                     }
                 )
             case .coachDetail:
                 CoachDetailView(
-                    coach: selectedCoach ?? Coach.sample,
+                    viewModel: coachesViewModel,
                     onBack: { screen = .coachList },
                     onShowReviews: { screen = .coachReviews }
                 )
             case .coachReviews:
                 CoachReviewsView(
+                    viewModel: coachesViewModel,
                     onBack: { screen = .coachDetail },
                     onWriteReview: { screen = .writeReview }
                 )
             case .writeReview:
-                WriteReviewView(onClose: { screen = .coachReviews })
+                WriteReviewView(
+                    viewModel: coachesViewModel,
+                    onClose: { screen = .coachReviews }
+                )
             }
         }
     }

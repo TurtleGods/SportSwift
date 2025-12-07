@@ -1,11 +1,9 @@
 import SwiftUI
 
 struct GoalView: View {
-    @State private var selected: String = "純記錄"
+    @ObservedObject var viewModel: RegistrationViewModel
     var onBack: () -> Void
     var onNext: () -> Void
-
-    private let goals = ["增肌減脂", "減重", "純記錄"]
 
     var body: some View {
         VStack(spacing: 28) {
@@ -14,13 +12,13 @@ struct GoalView: View {
             Spacer()
 
             VStack(spacing: 16) {
-                ForEach(goals, id: \.self) { goal in
+                ForEach(viewModel.goals, id: \.self) { goal in
                     Button {
-                        selected = goal
+                        viewModel.selectedGoal = goal
                     } label: {
                         Text(goal)
                             .font(.system(size: 16, weight: .semibold))
-                            .foregroundColor(goal == selected ? AppColors.primaryText : AppColors.mutedText)
+                            .foregroundColor(goal == viewModel.selectedGoal ? AppColors.primaryText : AppColors.mutedText)
                             .frame(maxWidth: .infinity)
                             .padding(.vertical, 14)
                             .background(
@@ -28,7 +26,7 @@ struct GoalView: View {
                                     .stroke(AppColors.line, lineWidth: 1)
                                     .background(
                                         RoundedRectangle(cornerRadius: 12)
-                                            .fill(goal == selected ? .white : AppColors.inputBackground)
+                                            .fill(goal == viewModel.selectedGoal ? .white : AppColors.inputBackground)
                                     )
                             )
                     }

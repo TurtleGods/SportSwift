@@ -1,12 +1,7 @@
 import SwiftUI
 
 struct BasicInfoView: View {
-    @State private var name: String = "王曉明"
-    @State private var birthday: String = "1990/02/01"
-    @State private var gender: String = "男"
-    @State private var height: String = "180"
-    @State private var weight: String = "90"
-    @State private var work: String = "輕"
+    @ObservedObject var viewModel: RegistrationViewModel
     var onBack: () -> Void
     var onNext: () -> Void
 
@@ -40,12 +35,12 @@ struct BasicInfoView: View {
             .padding(.top, 8)
 
             VStack(spacing: 14) {
-                InfoField(title: "姓名", text: $name)
-                InfoField(title: "生日", text: $birthday)
-                InfoField(title: "性別", text: $gender)
-                InfoField(title: "身高", text: $height)
-                InfoField(title: "體重", text: $weight)
-                InfoField(title: "你的工作量", text: $work)
+                InfoField(title: "姓名", text: $viewModel.name)
+                InfoField(title: "生日", text: $viewModel.birthday)
+                InfoField(title: "性別", text: $viewModel.gender)
+                InfoField(title: "身高", text: $viewModel.height)
+                InfoField(title: "體重", text: $viewModel.weight)
+                InfoField(title: "你的工作量", text: $viewModel.work)
             }
             .padding(.horizontal, 18)
             .padding(.vertical, 12)

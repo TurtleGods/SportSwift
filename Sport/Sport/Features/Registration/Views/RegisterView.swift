@@ -1,8 +1,7 @@
 import SwiftUI
 
 struct RegisterView: View {
-    @State private var phone: String = "091234567895"
-    @State private var code: String = "1234"
+    @ObservedObject var viewModel: RegistrationViewModel
     var onRegister: () -> Void
 
     var body: some View {
@@ -16,7 +15,7 @@ struct RegisterView: View {
 
             VStack(spacing: 18) {
                 HStack(spacing: 12) {
-                    AppTextField(text: $phone, placeholder: "091234567895")
+                    AppTextField(text: $viewModel.phone, placeholder: "091234567895")
                     Text("發送簡訊")
                         .font(.system(size: 14, weight: .medium))
                         .foregroundColor(AppColors.mutedText)
@@ -27,7 +26,7 @@ struct RegisterView: View {
                         .font(.system(size: 14, weight: .medium))
                         .foregroundColor(AppColors.mutedText)
                         .frame(width: 60, alignment: .leading)
-                    AppTextField(text: $code, placeholder: "1234")
+                    AppTextField(text: $viewModel.code, placeholder: "1234")
                 }
             }
             .padding(.horizontal, 24)

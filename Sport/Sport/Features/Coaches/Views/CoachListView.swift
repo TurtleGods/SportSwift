@@ -1,19 +1,10 @@
 import SwiftUI
 
 struct CoachListView: View {
-    private let coaches: [Coach] = [
-        Coach(name: "王小名", experience: "abcabcabc", rating: 4, accent: .blue),
-        Coach(name: "王小名", experience: "abcabcabc", rating: 5, accent: .green),
-        Coach(name: "王小名", experience: "abcabcabc", rating: 3, accent: .orange),
-        Coach(name: "王小名", experience: "abcabcabc", rating: 4, accent: .purple)
-    ]
+    @ObservedObject var viewModel: CoachesViewModel
     var onBack: () -> Void
     var onSelect: (Coach) -> Void
-    @State private var selectedCity: String = "台北"
-    @State private var selectedArea: String = "大安區"
 
-    private let cities = ["台北", "新北", "桃園"]
-    private let areas = ["大安區", "信義區", "中山區"]
     private let columns = [GridItem(.flexible()), GridItem(.flexible())]
 
     var body: some View {
@@ -38,18 +29,21 @@ struct CoachListView: View {
             .safeAreaPadding(.top)
 
             CoachListFilters(
-                selectedCity: $selectedCity,
-                cities: cities,
-                selectedArea: $selectedArea,
-                areas: areas
+                selectedCity: $viewModel.selectedCity,
+                cities: viewModel.cities,
+                selectedArea: $viewModel.selectedArea,
+                areas: viewModel.areas
             )
             .padding(.horizontal, 12)
 
             ScrollView {
                 LazyVGrid(columns: columns, spacing: 18) {
-                    ForEach(coaches) { coach in
+                    ForEach(viewModel.coaches) { coach in
                         CoachCard(coach: coach)
-                            .onTapGesture { onSelect(coach) }
+                            .onTapGesture {
+                                viewModel.selectCoach(coach)
+                                onSelect(coach)
+                            }
                     }
                 }
                 .padding(.horizontal, 12)
