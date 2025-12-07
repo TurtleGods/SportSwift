@@ -8,6 +8,8 @@ enum BottomTab {
 }
 
 struct TopBar: View {
+    var onProfile: () -> Void = {}
+
     var body: some View {
         HStack {
             Image(systemName: "smiley.fill")
@@ -20,9 +22,11 @@ struct TopBar: View {
                 .foregroundColor(.white)
                 .padding(.leading, 4)
             Spacer()
-            Image(systemName: "person.crop.circle")
-                .foregroundColor(.white)
-                .font(.system(size: 28))
+            Button(action: onProfile) {
+                Image(systemName: "person.crop.circle")
+                    .foregroundColor(.white)
+                    .font(.system(size: 28))
+            }
         }
         .padding(.horizontal, 20)
         .padding(.top, 12)
@@ -53,6 +57,8 @@ struct BackBar: View {
 }
 
 struct HomeTopBar: View {
+    var onProfile: () -> Void = {}
+
     var body: some View {
         HStack(spacing: 12) {
             Image(systemName: "smiley.fill")
@@ -67,9 +73,11 @@ struct HomeTopBar: View {
             Image(systemName: "bell")
                 .foregroundColor(.white)
                 .font(.system(size: 22))
-            Image(systemName: "person.crop.circle")
-                .foregroundColor(.white)
-                .font(.system(size: 26))
+            Button(action: onProfile) {
+                Image(systemName: "person.crop.circle")
+                    .foregroundColor(.white)
+                    .font(.system(size: 26))
+            }
         }
         .padding(.horizontal, 16)
         .padding(.top, 12)

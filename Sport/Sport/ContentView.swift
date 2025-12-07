@@ -19,6 +19,7 @@ private enum AppScreen {
     case coachReviews
     case writeReview
     case records
+    case account
 }
 
 struct ContentView: View {
@@ -81,6 +82,7 @@ struct ContentView: View {
                     onOpenCoaches: {
                         screen = .coachList
                     },
+                    onProfile: { screen = .account },
                     onSelectTab: handleTab
                 )
             case .coachList:
@@ -118,6 +120,8 @@ struct ContentView: View {
                     onBack: { screen = .home },
                     onSelectTab: handleTab
                 )
+            case .account:
+                AccountView(onBack: { screen = .home })
             }
         }
     }

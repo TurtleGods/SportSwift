@@ -3,11 +3,12 @@ import SwiftUI
 struct HomeView: View {
     @ObservedObject var viewModel: HomeViewModel
     var onOpenCoaches: () -> Void
+    var onProfile: () -> Void = {}
     var onSelectTab: (BottomTab) -> Void = { _ in }
 
     var body: some View {
         VStack(spacing: 0) {
-            HomeTopBar()
+            HomeTopBar(onProfile: onProfile)
                 .background(AppColors.background)
                 .zIndex(1)
 
