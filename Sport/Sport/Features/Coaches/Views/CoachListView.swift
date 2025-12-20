@@ -25,7 +25,7 @@ struct CoachListView: View {
                 Spacer()
                 Color.clear.frame(width: 44, height: 44)
             }
-            .padding(.horizontal, 16)
+            .padding(.horizontal, 12)
             .padding(.top, 6)
             .safeAreaPadding(.top)
 

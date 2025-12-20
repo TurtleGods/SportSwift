@@ -9,26 +9,45 @@ struct CoachDetailView: View {
     var body: some View {
         let coach = viewModel.currentCoach
 
-        return VStack(spacing: 16) {
-            CoachDetailHeader(onBack: onBack, onShowReviews: onShowReviews)
+        VStack(spacing: 4) {
+            HStack {
+                Button(action: onBack) {
+                    Image(systemName: "chevron.left")
+                        .foregroundColor(.white)
+                        .font(.system(size: 20, weight: .bold))
+                        .frame(width: 44, height: 44)
+                        .contentShape(Rectangle())
+                }
+                Spacer()
+                Text("熱門教練推薦")
+                    .font(.system(size: 22, weight: .bold))
+                    .foregroundColor(.white)
+                Spacer()
+                Color.clear.frame(width: 44, height: 44)
+            }
+            .padding(.horizontal, 12)
+            .padding(.top, 6)
+            .safeAreaPadding(.top)
+            
+            HStack(spacing: 12) {
+                VStack(spacing: 6) {
+                    Circle()
+                        .strokeBorder(Color.white, lineWidth: 4)
+                        .background(Circle().fill(coach.accent.opacity(0.8)))
+                        .frame(width: 140, height: 140)
+                        .overlay(
+                            Image(systemName: "person.fill")
+                                .resizable()
+                                .scaledToFit()
+                                .frame(width: 60, height: 60)
+                                .foregroundColor(.white)
+                        )
 
-            VStack(spacing: 12) {
-                Circle()
-                    .strokeBorder(Color.white, lineWidth: 4)
-                    .background(Circle().fill(coach.accent.opacity(0.8)))
-                    .frame(width: 140, height: 140)
-                    .overlay(
-                        Image(systemName: "person.fill")
-                            .resizable()
-                            .scaledToFit()
-                            .frame(width: 60, height: 60)
-                            .foregroundColor(.white)
-                    )
-
-                HStack(spacing: 4) {
-                    ForEach(0..<5) { idx in
-                        Image(systemName: idx < coach.rating ? "star.fill" : "star")
-                            .foregroundColor(.yellow)
+                    HStack(spacing: 4) {
+                        ForEach(0..<5) { idx in
+                            Image(systemName: idx < coach.rating ? "star.fill" : "star")
+                                .foregroundColor(.yellow)
+                        }
                     }
                 }
             }
@@ -62,40 +81,9 @@ struct CoachDetailView: View {
             BottomBar(active: .home, onSelect: onSelectTab)
                 .padding(.bottom, 4)
         }
+        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
         .highPriorityGesture(backSwipeGesture(onBack))
         .background(AppColors.sheetBackground.ignoresSafeArea())
-    }
-}
-
-private struct CoachDetailHeader: View {
-    var onBack: () -> Void
-    var onShowReviews: () -> Void
-
-    var body: some View {
-        HStack {
-            Button(action: onBack) {
-                Image(systemName: "chevron.left")
-                    .foregroundColor(.white)
-                    .font(.system(size: 20, weight: .bold))
-                    .frame(width: 44, height: 44)
-                    .contentShape(Rectangle())
-            }
-            Spacer()
-            Text("熱門教練推薦")
-                .font(.system(size: 22, weight: .bold))
-                .foregroundColor(.white)
-            Spacer()
-            Button(action: onShowReviews) {
-                Text("查看評價")
-                    .foregroundColor(.yellow)
-                    .font(.system(size: 14, weight: .semibold))
-                    .frame(width: 80, height: 44, alignment: .trailing)
-                    .contentShape(Rectangle())
-            }
-        }
-        .padding(.horizontal, 16)
-        .padding(.top, 6)
-        .safeAreaPadding(.top)
     }
 }
 
@@ -103,7 +91,7 @@ private struct CoachDetailInfo: View {
     var coach: Coach
 
     var body: some View {
-        VStack(spacing: 10) {
+        VStack(spacing: 12) {
             DetailRow(label: "姓名", value: coach.name)
             DetailRow(label: "生日", value: "1992.10.01")
             DetailRow(label: "體重", value: "52kg")
@@ -113,7 +101,7 @@ private struct CoachDetailInfo: View {
             DetailRow(label: "證照", value: "facilisis quam hac")
             DetailRow(label: "收費標準", value: "900 hr/元")
         }
-        .padding(.vertical, 16)
+        .padding(.vertical, 12)
         .background(
             RoundedRectangle(cornerRadius: 12)
                 .stroke(AppColors.line, lineWidth: 1)
