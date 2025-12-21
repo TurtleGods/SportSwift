@@ -2,6 +2,7 @@ import SwiftUI
 
 struct AccountView: View {
     var onBack: () -> Void
+    var onBasicInfo: () -> Void
 
     private let analysisItems = ["運動記錄分析", "飲食記錄分析", "綜合分析"]
     private let generalItems = ["申請成為教練", "上課打卡記錄", "帳號", "帳號"]
@@ -33,7 +34,7 @@ struct AccountView: View {
     }
 
     private var accountHeader: some View {
-        Button(action: {}) {
+        Button(action: onBasicInfo) {
             HStack(spacing: 12) {
                 Circle()
                     .fill(Color.gray.opacity(0.4))
@@ -134,3 +135,10 @@ struct AccountView: View {
         }
     }
 }
+
+#if DEBUG
+#Preview("Account") {
+    AccountView(onBack: {}, onBasicInfo: {})
+        .preferredColorScheme(.dark)
+}
+#endif

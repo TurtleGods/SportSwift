@@ -121,7 +121,10 @@ struct ContentView: View {
                     onSelectTab: handleTab
                 )
             case .account:
-                AccountView(onBack: { screen = .home })
+                AccountView(
+                    onBack: { screen = .home },
+                    onBasicInfo: { screen = .basicInfo }
+                )
             }
         }
     }
