@@ -23,7 +23,12 @@ struct CoachDetailView: View {
                     .font(.system(size: 22, weight: .bold))
                     .foregroundColor(.white)
                 Spacer()
-                Color.clear.frame(width: 44, height: 44)
+                Button(action: onShowReviews) {
+                    Text("查看紀錄")
+                        .font(.system(size: 14, weight: .bold))
+                        .foregroundColor(.yellow)
+                        .frame(width: 72, height: 44, alignment: .trailing)
+                }
             }
             .padding(.horizontal, 12)
             .padding(.top, 6)
