@@ -20,6 +20,8 @@ private enum AppScreen {
     case writeReview
     case records
     case account
+    case wallet
+    case happyCoin
 }
 
 struct ContentView: View {
@@ -123,7 +125,19 @@ struct ContentView: View {
             case .account:
                 AccountView(
                     onBack: { screen = .home },
-                    onBasicInfo: { screen = .basicInfo }
+                    onBasicInfo: { screen = .basicInfo },
+                    onWallet: { screen = .wallet },
+                    onHappyCoin: { screen = .happyCoin }
+                )
+            case .wallet:
+                WalletView(
+                    onBack: { screen = .account },
+                    onSelectTab: handleTab
+                )
+            case .happyCoin:
+                HappyCoinView(
+                    onBack: { screen = .account },
+                    onSelectTab: handleTab
                 )
             }
         }

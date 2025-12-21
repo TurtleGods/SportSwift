@@ -3,6 +3,8 @@ import SwiftUI
 struct AccountView: View {
     var onBack: () -> Void
     var onBasicInfo: () -> Void
+    var onWallet: () -> Void
+    var onHappyCoin: () -> Void
 
     private let analysisItems = ["運動記錄分析", "飲食記錄分析", "綜合分析"]
     private let generalItems = ["申請成為教練", "上課打卡記錄", "帳號", "帳號"]
@@ -68,27 +70,33 @@ struct AccountView: View {
 
     private var walletCard: some View {
         HStack {
-            VStack(spacing: 4) {
-                Text("我的錢包")
-                    .foregroundColor(.white)
-                    .font(.system(size: 14, weight: .semibold))
-                Text("$2500")
-                    .foregroundColor(.yellow)
-                    .font(.system(size: 18, weight: .bold))
+            Button(action: onWallet) {
+                VStack(spacing: 4) {
+                    Text("我的錢包")
+                        .foregroundColor(.white)
+                        .font(.system(size: 14, weight: .semibold))
+                    Text("$2500")
+                        .foregroundColor(.yellow)
+                        .font(.system(size: 18, weight: .bold))
+                }
+                .frame(maxWidth: .infinity)
             }
-            .frame(maxWidth: .infinity)
+            .buttonStyle(.plain)
             Rectangle()
                 .fill(AppColors.line)
                 .frame(width: 1, height: 48)
-            VStack(spacing: 4) {
-                Text("快樂幣")
-                    .foregroundColor(.white)
-                    .font(.system(size: 14, weight: .semibold))
-                Text("200")
-                    .foregroundColor(.yellow)
-                    .font(.system(size: 18, weight: .bold))
+            Button(action: onHappyCoin) {
+                VStack(spacing: 4) {
+                    Text("快樂幣")
+                        .foregroundColor(.white)
+                        .font(.system(size: 14, weight: .semibold))
+                    Text("200")
+                        .foregroundColor(.yellow)
+                        .font(.system(size: 18, weight: .bold))
+                }
+                .frame(maxWidth: .infinity)
             }
-            .frame(maxWidth: .infinity)
+            .buttonStyle(.plain)
         }
         .padding(.vertical, 14)
         .background(AppColors.cardBackground)
@@ -138,7 +146,7 @@ struct AccountView: View {
 
 #if DEBUG
 #Preview("Account") {
-    AccountView(onBack: {}, onBasicInfo: {})
+    AccountView(onBack: {}, onBasicInfo: {}, onWallet: {}, onHappyCoin: {})
         .preferredColorScheme(.dark)
 }
 #endif
